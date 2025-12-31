@@ -20,10 +20,19 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "edgeToEdgeEnabled": true
+      "edgeToEdgeEnabled": true,
+      "package": "com.abdulwaheed.apk.StepTrackerApp"
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "ac8c90a7-4418-42c3-adf5-b35e02546b6c"
+      }
+    },
+    "plugins": [
+      "expo-font"
+    ]
   }
 }
