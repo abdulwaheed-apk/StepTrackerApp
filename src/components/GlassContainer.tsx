@@ -52,6 +52,6 @@ const styles = StyleSheet.create({
         borderRadius: 24,
         overflow: 'hidden',
         borderWidth: 1, // Subtle border back for separation in light mode
-        // No shadows - "Jony Ive" flat/clear style
+        // No shadows
     },
 });

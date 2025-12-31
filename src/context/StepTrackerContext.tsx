@@ -84,16 +84,23 @@ export const StepTrackerProvider = ({ children }: { children: ReactNode }) => {
         await AsyncStorage.setItem('dailyTarget', newTarget.toString());
     };
 
-    // Derived
-    const distance = (dailySteps * 0.762) / 1000;
-    const calories = dailySteps * 0.04;
-    const duration = dailySteps / 100;
+    // Derived Stats
+    const distance = (dailySteps * 0.762) / 1000; // Approx 0.762m stride
+    const calories = dailySteps * 0.04; // Approx 0.04 cal/step
+    const duration = dailySteps / 100; // Estimate
 
-    // Streak
+    // Calculate Streak
     const calculateStreak = () => {
         const sorted = Object.keys(history).sort((a, b) => new Date(b).getTime() - new Date(a).getTime());
         let current = 0;
         const todayKey = new Date().toISOString().split('T')[0];
+
+        // If today matches target, start with 1, else check history
+        if (dailySteps >= target) {
+            // Current streak logic handled by scanning history + today state
+            // But history usually updates on change.
+        }
+
         for (const date of sorted) {
             if (history[date] >= target) current++;
             else if (date !== todayKey) break;
