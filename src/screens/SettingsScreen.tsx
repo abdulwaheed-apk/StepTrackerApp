@@ -37,7 +37,7 @@ export const SettingsScreen = ({ navigation }: any) => {
     };
 
     const openGithub = () => {
-        Linking.openURL('https://github.com/your-username/step-tracker/issues');
+        Linking.openURL('https://github.com/abdulwaheed-apk/StepTrackerApp');
     };
 
     return (

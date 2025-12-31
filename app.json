@@ -12,16 +12,22 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "ios": {
-      "supportsTablet": true
-    },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
       "edgeToEdgeEnabled": true,
-      "package": "com.abdulwaheed.apk.StepTrackerApp"
+      "package": "com.abdulwaheed.apk.StepTrackerApp",
+      "permissions": [
+        "ACTIVITY_RECOGNITION"
+      ]
+    },
+    "ios": {
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSMotionUsageDescription": "This app uses the motion sensor to track your steps."
+      }
     },
     "web": {
       "favicon": "./assets/favicon.png"
