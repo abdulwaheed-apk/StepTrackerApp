@@ -42,13 +42,13 @@ export const WeeklyProgress: React.FC<WeeklyProgressProps> = ({ history, target,
 
                         return (
                             <View key={index} style={styles.barWrapper}>
-                                <View style={[styles.barTrack, { backgroundColor: isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.05)' }]}>
+                                <View style={[styles.barTrack, { backgroundColor: colors.chartTrack }]}>
                                     <View
                                         style={[
                                             styles.barFill,
                                             {
                                                 height: `${progress * 100}%`,
-                                                backgroundColor: progress >= 1 ? '#10B981' : colors.accent
+                                                backgroundColor: progress >= 1 ? colors.success : colors.accent
                                             }
                                         ]}
                                     />

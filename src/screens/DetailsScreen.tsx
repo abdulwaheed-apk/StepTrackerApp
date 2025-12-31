@@ -139,12 +139,15 @@ export const DetailsScreen = ({ navigation }: any) => {
                                         </Text>
                                     </View>
 
-                                    <View style={styles.barContainer}>
+                                    <View style={[
+                                        styles.barContainer,
+                                        { backgroundColor: colors.chartTrack }
+                                    ]}>
                                         <View style={[
                                             styles.barFill,
                                             {
                                                 width: `${progress * 100}%`,
-                                                backgroundColor: isMet ? '#10B981' : (isToday ? colors.accent : (isDark ? 'rgba(255,255,255,0.2)' : 'rgba(0,0,0,0.1)')),
+                                                backgroundColor: isMet ? colors.success : (isToday ? colors.accent : colors.chartInactive),
                                                 minWidth: 4
                                             }
                                         ]} />
@@ -236,7 +239,12 @@ const styles = StyleSheet.create({
     barContainer: {
         flex: 1,
         height: 12,
-        backgroundColor: 'rgba(0,0,0,0.03)',
+        // backgroundColor: handled via style prop in render if needed, or dynamic
+        // But here it was static. Let's make it transparent or use chartTrack if we can pass theme.
+        // Since this is in StyleSheet, we can't use 'colors'.
+        // We must override in render.
+        // backgroundColor: 'rgba(0,0,0,0.03)', 
+        // REMOVED fixed color, will apply in render
         borderRadius: 6,
         marginHorizontal: 12,
         overflow: 'hidden',

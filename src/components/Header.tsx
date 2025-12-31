@@ -2,6 +2,8 @@ import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { Settings } from 'lucide-react-native'; // Gear icon
 import { COLORS } from '../constants/colors';
+import { GLOBAL_STYLES } from '../constants/globalStyles';
+
 
 interface HeaderProps {
     theme: 'light' | 'dark';
@@ -22,8 +24,8 @@ export const Header: React.FC<HeaderProps> = ({ theme, onSettingsPress, streak =
                 <Text style={[styles.title, { color: colors.text }]}>Hi {name} 👋</Text>
                 {streak > 0 && (
                     <View style={[styles.streakRow]}>
-                        <View style={[styles.streakBadge, { borderColor: colors.accent, backgroundColor: isDark ? 'rgba(255,165,0,0.2)' : '#FEF3C7' }]}>
-                            <Text style={{ fontWeight: 'bold', fontSize: 12, color: isDark ? '#FCD34D' : '#D97706' }}>🔥 {streak} Days Streak</Text>
+                        <View style={[styles.streakBadge, { borderColor: colors.accent, backgroundColor: colors.streakBackground }]}>
+                            <Text style={{ fontWeight: 'bold', fontSize: 12, color: colors.streakText }}>🔥 {streak} Days Streak</Text>
                         </View>
                     </View>
                 )}
@@ -41,22 +43,18 @@ export const Header: React.FC<HeaderProps> = ({ theme, onSettingsPress, streak =
 
 const styles = StyleSheet.create({
     header: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'flex-start',
+        ...GLOBAL_STYLES.rowBetween,
+        alignItems: 'flex-start', // Override alignment
         marginBottom: 20,
         marginTop: 10,
     },
     welcome: {
-        fontSize: 12,
-        fontWeight: '600',
-        textTransform: 'uppercase',
+        ...GLOBAL_STYLES.caption,
         marginBottom: 4,
-        letterSpacing: 0.5,
     },
     title: {
-        fontSize: 32, // Bigger
-        fontWeight: '800',
+        ...GLOBAL_STYLES.display,
+        fontSize: 32, // Specific override if needed, or stick to display size
     },
     streakRow: {
         marginTop: 8,

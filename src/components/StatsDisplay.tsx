@@ -63,7 +63,7 @@ export const StatsDisplay: React.FC<StatsDisplayProps> = ({
                     size={160}
                     thickness={12}
                     color={colors.accent}
-                    unfilledColor={isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.05)'}
+                    unfilledColor={colors.chartTrack}
                     borderWidth={0}
                     strokeCap="round"
                 />
@@ -79,19 +79,19 @@ export const StatsDisplay: React.FC<StatsDisplayProps> = ({
                     icon={Flame}
                     value={Math.round(calories).toString()}
                     label="Cal"
-                    color="#EF4444"
+                    color={colors.error}
                 />
                 <StatItem
                     icon={MapIcon}
                     value={distance.toFixed(2)}
                     label="Km"
-                    color="#3B82F6"
+                    color={colors.info}
                 />
                 <StatItem
                     icon={Clock}
                     value={Math.round(duration).toString()}
                     label="Min"
-                    color="#10B981"
+                    color={colors.success}
                 />
             </View>
         </GlassContainer>
